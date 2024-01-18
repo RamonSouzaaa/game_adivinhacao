@@ -3,7 +3,9 @@
 #include <time.h>
 #define NUMERO_DE_TENTATIVAS 5
 
-int main() {
+void jogo();
+
+void jogo() {
     srand(time(0));//seed do srand para gerar números aleatórios com base na data
     int numeroSecreto = rand() % 100;// mod de 100 para considerar números de 0 a 99
     int palpite;
@@ -11,6 +13,7 @@ int main() {
     int isMaiorNumero;
     int isMenorNumero;
     int isPalpiteValido;
+    int isJogarDenovo = 0;
 
     printf("************************************\n");
     printf("* BEM VINDO AO JOGO DE ADIVINHACAO *\n");
@@ -60,6 +63,20 @@ int main() {
     printf("************************************\n");
     printf("*            FIM DE JOGO           *\n");
     printf("************************************\n");
+
+    printf("Deseja jogar novamente? (0-Nao 1-Sim)\n");
+    scanf("%d", &isJogarDenovo);
+    printf("\n\n");
+
+    if(isJogarDenovo == 1) {
+        jogo();
+    } else {
+        printf("Opcao inválida!");
+    }
+}
+
+int main() {
+    jogo();
     return 0;
 }
 
